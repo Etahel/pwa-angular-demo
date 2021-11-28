@@ -1,0 +1,13 @@
+<div class="card">
+  <h5 class="card-title">{{ todo.title }}</h5>
+  <div class="card-body">
+    <div> Deadline: {{todo.deadline | date: 'dd/MM/yyyy'}}</div>
+    <div  *ngIf="todo.done; else statusToDo"  class="text-success">Done</div>
+    <ng-template #statusToDo>
+      <div class="text-danger" >To do</div>
+    </ng-template>
+    <button *ngIf="!todo.done"  class="btn btn-success float-start btn-sm" (click)="complete()">Done</button>
+    <button class="btn btn-danger float-end btn-sm" (click)="delete()">X</button>
+  </div>
+
+</div>
